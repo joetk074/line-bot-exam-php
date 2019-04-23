@@ -16,15 +16,15 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			//$text = $event['source']['roomId'];
-			$text = "userId : $event['source']['userId'] /r/nroomId : $event['source']['roomId']"  ;
+			$roomId = $event['source']['roomId'];
+			$userId = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' =>  $text 
+				'text' =>  "userId : $userId /r/n roomId : $roomId" 
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
