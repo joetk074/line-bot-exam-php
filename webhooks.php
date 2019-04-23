@@ -18,13 +18,14 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$roomId = $event['source']['roomId'];
 			$userId = $event['source']['userId'];
+			$type = $event['source']['type'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' =>  "userId : $userId \r\n roomId : $roomId" 
+				'text' =>  "type : $type \r\n userId : $userId \r\n roomId : $roomId" 
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
